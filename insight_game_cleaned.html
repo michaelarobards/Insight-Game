@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Game</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .game-container {
+            margin: 50px auto;
+            width: 800px;
+            max-width: 100%;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Welcome to the Insight Game</h1>
+        <p>Loading the game...</p>
+        <div>
+            <!-- Ruffle Flash Emulator -->
+            <object id="ruffle-player" data="insight.swf" width="800" height="600"></object>
+        </div>
+        <p>If the game does not load, please ensure you have Ruffle enabled.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Insight Game. All rights reserved.
+    </div>
+
+    <script>
+        // Initialize Ruffle
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("ruffle-player");
+        container.replaceWith(player);
+        player.load("insight.swf");
+    </script>
+</body>
+</html>
