@@ -6,44 +6,33 @@
     <title>Insight Game</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
         }
-        .game-container {
-            margin: 50px auto;
-            width: 800px;
-            max-width: 100%;
+        #ruffle-container {
+            width: 100%;
+            height: 100%;
         }
-        .footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #666;
+        object {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <h1>Welcome to the Insight Game</h1>
-        <p>Loading the game...</p>
-        <div>
-            <!-- Ruffle Flash Emulator -->
-            <object id="ruffle-player" data="insight.swf" width="800" height="600" type="application/x-shockwave-flash">
-                <p>Your browser does not support Flash or the Ruffle Flash emulator. Please enable Ruffle or use a compatible browser.</p>
-            </object>
-        </div>
-        <p>If the game does not load, please ensure you have Ruffle enabled.</p>
+    <div id="ruffle-container">
+        <object id="ruffle-player" 
+                data="insight.swf" 
+                type="application/x-shockwave-flash">
+        </object>
     </div>
-
-    <div class="footer">
-        &copy; 2024 Insight Game. All rights reserved.
-    </div>
-
     <script>
-        // Initialize Ruffle
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
         const container = document.getElementById("ruffle-player");
