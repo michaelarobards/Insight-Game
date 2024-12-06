@@ -39,7 +39,12 @@
 </head>
 <body>
     <div id="ruffle-container">
-        <object id="ruffle-player" data="insight.swf" type="application/x-shockwave-flash"></object>
+        <object id="ruffle-player" 
+        data="insight.swf" 
+        type="application/x-shockwave-flash">
+    <param name="scale" value="exactFit">
+</object>
+
     </div>
     <script>
         const ruffle = window.RufflePlayer.newest();
